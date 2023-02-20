@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include <string>
 
+#define M17_ADDR_SIZE       6
+
 #define M17_ADDR_INVALID    0x000000000000
 #define M17_ADDR_ID_MIN     0x000000000001
 #define M17_ADDR_INFO       0x0000000ECDB9
@@ -13,7 +15,18 @@
 namespace M17 {
     typedef int64_t Address;
 
+    /**
+     * Encode address to bytes.
+     * @param addr Address to be encoded.
+     * @param data Buffer to write the encoded address to. Must be at least 6 bytes.
+     */
     void encodeAddress(const Address& addr, uint8_t* data);
+
+    /**
+     * Decode address from bytes.
+     * @param data Buffer decode the address from. Must be at least 6 bytes.
+     * @return Address value.
+     */
     Address decodeAddress(const uint8_t* data);
 
     /**
