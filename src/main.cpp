@@ -25,5 +25,7 @@ int main() {
     }
     printf("\n");
 
+    M17::GNSS::decode()
+
     return 0;
 }

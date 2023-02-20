@@ -1,6 +1,8 @@
 #pragma once
 #include <stdint.h>
 
+#define M17_GNSS_SIZE   14
+
 namespace M17 {
     enum DataSource {
         DATA_SOURCE_M17_CLIENT  = 0x00,
@@ -23,7 +25,18 @@ namespace M17 {
         double bearing;
         double speed;
 
+        /**
+         * Encode GNSS information to bytes.
+         * @param gnss GNSS information.
+         * @param data Buffer to encode the GNSS information to. Must be at least 14 bytes.
+         */
         static void encode(const GNSS& gnss, uint8_t* data);
+
+        /**
+         * Decode GNSS information from bytes.
+         * @param data Buffer to decode the GNSS information from. Must be at least 14 bytes.
+         * @param gnss Decoded GNSS information.
+         */
         static void decode(const uint8_t* data, GNSS& gnss);
     };
 };
