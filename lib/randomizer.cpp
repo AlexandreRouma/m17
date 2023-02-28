@@ -4,7 +4,7 @@
 
 namespace M17::randomizer {
     const uint8_t RAND_SEQ[RAND_SEQ_LEN] = {
-
+        // TODO
     };
 
     void apply(const uint8_t* in, uint8_t* out, int len) {
